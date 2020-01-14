@@ -10,7 +10,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        TabView{
+            SelectStation()
+                .tabItem {
+                    Image(systemName: "location.fill")
+                    Text("選擇車站")
+            }
+            PhotoList()
+                .tabItem {
+                    Image(systemName: "hare.fill")
+                    Text("旅遊地點")
+            }
+            Author()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("作者")
+            }
+        }
     }
 }
 
