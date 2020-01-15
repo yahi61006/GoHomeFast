@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var photoData: PhotoData
     var body: some View {
         TabView{
             SelectStation()

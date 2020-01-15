@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PhotoList: View {
-    @ObservedObject var photoData = PhotoData()
+    @EnvironmentObject var photoData: PhotoData
     @State private var showPhotoEdit = false
     
     let dateFormatter: DateFormatter = {
@@ -56,7 +56,7 @@ struct PhotoList: View {
                 }))
                 .sheet(isPresented: $showPhotoEdit) {
                     NavigationView {
-                        PhotoEdit(photoData: self.photoData)
+                        PhotoEdit().environmentObject(self.photoData)
                     }
             }
         }
@@ -66,6 +66,6 @@ struct PhotoList: View {
 
 struct PhotoList_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoList()
+        PhotoList().environmentObject(PhotoData())
     }
 }

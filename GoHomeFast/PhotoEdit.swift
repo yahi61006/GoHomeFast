@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PhotoEdit: View {
+    @EnvironmentObject var photoData: PhotoData
     @Environment(\.presentationMode) var presentationMode
     @State private var placename = ""
     @State private var gotoDate = Date()
@@ -23,7 +24,7 @@ struct PhotoEdit: View {
     @State private var selectImage: UIImage?
     @State private var scale: CGFloat = 1
     @State private var newscale: CGFloat = 1
-    var photoData: PhotoData
+    //var photoData: PhotoData
     var editphoto: Photo?
     
     var body: some View {
@@ -100,6 +101,6 @@ struct PhotoEdit: View {
 
 struct PhotoEdit_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoEdit(photoData: PhotoData())
+        PhotoEdit()
     }
 }
